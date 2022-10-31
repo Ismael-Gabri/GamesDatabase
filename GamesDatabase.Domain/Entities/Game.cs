@@ -8,19 +8,29 @@ namespace GamesDatabase.Domain.Entities
 {
     public class Game : Entity
     {
-        public Game(string type, string name, Genre genre, PriceOverview price_Overview, IList<string> screenshots)
+        public Game(string type,
+            string name,
+            string genre,
+            double initialPrice,
+            double discount_Percentage,
+            double finalPrice, 
+            string screenshotPath)
         {
             Type = type;
             Name = name;
             Genre = genre;
-            Price_Overview = price_Overview;
-            ScreenshotPath = screenshots;
+            InitialPrice = initialPrice;
+            Discount_Percentage = discount_Percentage;
+            FinalPrice = finalPrice;
+            ScreenshotPath = screenshotPath;
         }
 
         public string Type { get; private set; }
         public string Name { get; private set; }
-        public Genre Genre { get; private set; }
-        public PriceOverview Price_Overview { get; private set; }
-        public IList<string> ScreenshotPath { get; set; }
+        public string Genre { get; private set; }
+        public double InitialPrice { get; private set; }
+        public double Discount_Percentage { get; private set; }
+        public double FinalPrice { get; private set; }
+        public string ScreenshotPath { get; set; }
     }
 }

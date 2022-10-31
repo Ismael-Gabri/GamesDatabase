@@ -18,7 +18,7 @@ namespace GamesDatabase.Domain.tests.HandlerTests
         public void Dado_Um_Comando_Invalido_Deve_Adicionar_Uma_Notificação()
         {
             List<string> list = new List<string>();
-            var command = new CreateGameCommand("BO", "IO", "", "", 0, 0, 0, list);
+            var command = new CreateGameCommand("BO", "IO", "", "", 0, 0, 0, "");
             var handler = new GameHandler(new FakeGamesRepository());
             var result = (GenericCommandResult)handler.Handle(command);
 
@@ -30,7 +30,7 @@ namespace GamesDatabase.Domain.tests.HandlerTests
         {
             List<string> list = new List<string>();
             list.Add(new string("http/csimg.com"));
-            var command = new CreateGameCommand("TipoValido", "NomeValido", "GeneroValido", "DescriscaoValida", 0, 0, 0, list);
+            var command = new CreateGameCommand("TipoValido", "NomeValido", "GeneroValido", "DescriscaoValida", 0, 0, 0, "");
             var handler = new GameHandler(new FakeGamesRepository());
             var result = (GenericCommandResult)handler.Handle(command);
 

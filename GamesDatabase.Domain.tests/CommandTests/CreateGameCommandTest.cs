@@ -12,10 +12,8 @@ namespace GamesDatabase.Domain.tests.CommandTests
     [TestClass]
     public class CreateGameCommandTest
     {
-        private static readonly List<string> _invalidList = new List<string>();
-        private static readonly List<string> _validList = new List<string>();
-        private readonly CreateGameCommand _invalid_command = new CreateGameCommand("BO", "IO", "", "", 0, 0, 0, _invalidList);
-        private readonly CreateGameCommand _valid_command = new CreateGameCommand("TipoValido", "NomeValido", "GeneroValido", "DescriscaoValida", 0, 0, 0, _validList);
+        private readonly CreateGameCommand _invalid_command = new CreateGameCommand("BO", "IO", "", "", 0, 0, 0, "");
+        private readonly CreateGameCommand _valid_command = new CreateGameCommand("TipoValido", "NomeValido", "GeneroValido", "DescriscaoValida", 0, 0, 0, "");
 
         [TestMethod]
         public void Deve_Retornar_5_Quando_Passado_Comando_Invalido()
@@ -27,7 +25,6 @@ namespace GamesDatabase.Domain.tests.CommandTests
         [TestMethod]
         public void Deve_Retornar_0_Quando_Passado_Comando_Valido()
         {
-            _validList.Add(new string("http/csimg.com"));
             _valid_command.Validate();
             Assert.AreEqual(0, _valid_command.Notification.Count);
         }

@@ -8,14 +8,20 @@ namespace GamesDatabase.Domain.Entities
 {
     public class PriceOverview
     {
-        public PriceOverview(decimal initialPrice, double discount_Percentage, decimal finalPrice)
+        public PriceOverview(double initialPrice, double discount_Percentage, double finalPrice)
         {
             InitialPrice = initialPrice;
             Discount_Percentage = discount_Percentage;
             FinalPrice = finalPrice;
         }
-        public decimal InitialPrice { get; private set; }
+        public double InitialPrice { get; private set; }
         public double Discount_Percentage { get; private set; }
-        public decimal FinalPrice { get; private set; }
+        public double FinalPrice { get; private set; }
+
+        public double Price_View 
+        { 
+            get { return InitialPrice + Discount_Percentage + FinalPrice; }
+            set { }
+        }
     }
 }
