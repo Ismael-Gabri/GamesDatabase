@@ -11,7 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 //Dependencias
-builder.Services.AddDbContext<GamesContext>(opt => opt.UseInMemoryDatabase("Database"));
+//builder.Services.AddDbContext<GamesContext>(opt => opt.UseInMemoryDatabase("Database"));
+builder.Services.AddDbContext<GamesContext>(opt => opt.UseSqlServer("Server=localhost\\SQLEXPRESS; database=GamesDb;User ID=sa;Password=1q2w3e4r@#$"));
 
 builder.Services.AddTransient<IGameRepository, GamesRepository>();
 builder.Services.AddTransient<GameHandler, GameHandler>();
