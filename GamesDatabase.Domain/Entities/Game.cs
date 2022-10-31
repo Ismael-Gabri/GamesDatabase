@@ -11,9 +11,9 @@ namespace GamesDatabase.Domain.Entities
         public Game(string type,
             string name,
             string genre,
-            double initialPrice,
-            double discount_Percentage,
-            double finalPrice, 
+            decimal initialPrice,
+            decimal discount_Percentage,
+            decimal finalPrice, 
             string screenshotPath)
         {
             Type = type;
@@ -28,9 +28,9 @@ namespace GamesDatabase.Domain.Entities
         public string Type { get; private set; }
         public string Name { get; private set; }
         public string Genre { get; private set; }
-        public double InitialPrice { get; private set; }
-        public double Discount_Percentage { get; private set; }
-        public double FinalPrice { get; private set; }
+        public decimal InitialPrice { get; private set; }
+        public decimal Discount_Percentage { get; private set; }
+        public decimal FinalPrice { get; private set; }
         public string ScreenshotPath { get; set; }
     }
 }

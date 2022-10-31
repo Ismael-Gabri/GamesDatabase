@@ -28,19 +28,19 @@ namespace GamesDatabase.Domain.Infra.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<double>("Discount_Percentage")
-                        .HasColumnType("DOUBLE");
+                    b.Property<decimal>("Discount_Percentage")
+                        .HasColumnType("DECIMAL");
 
-                    b.Property<double>("FinalPrice")
-                        .HasColumnType("DOUBLE");
+                    b.Property<decimal>("FinalPrice")
+                        .HasColumnType("DECIMAL");
 
                     b.Property<string>("Genre")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("NVARCHAR");
 
-                    b.Property<double>("InitialPrice")
-                        .HasColumnType("DOUBLE");
+                    b.Property<decimal>("InitialPrice")
+                        .HasColumnType("DECIMAL");
 
                     b.Property<string>("Name")
                         .IsRequired()

@@ -19,9 +19,9 @@ namespace GamesDatabase.Domain.Infra.Migrations
                     Type = table.Column<string>(type: "NVARCHAR(60)", maxLength: 60, nullable: false),
                     Name = table.Column<string>(type: "NVARCHAR(60)", maxLength: 60, nullable: false),
                     Genre = table.Column<string>(type: "NVARCHAR(30)", maxLength: 30, nullable: false),
-                    InitialPrice = table.Column<double>(type: "DOUBLE", nullable: false),
-                    DiscountPercentage = table.Column<double>(name: "Discount_Percentage", type: "DOUBLE", nullable: false),
-                    FinalPrice = table.Column<double>(type: "DOUBLE", nullable: false),
+                    InitialPrice = table.Column<decimal>(type: "DECIMAL(18,0)", nullable: false),
+                    DiscountPercentage = table.Column<decimal>(name: "Discount_Percentage", type: "DECIMAL(18,0)", nullable: false),
+                    FinalPrice = table.Column<decimal>(type: "DECIMAL(18,0)", nullable: false),
                     ScreenshotPath = table.Column<string>(type: "NVARCHAR(300)", maxLength: 300, nullable: false)
                 },
                 constraints: table =>
