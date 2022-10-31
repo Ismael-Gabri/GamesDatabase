@@ -16,9 +16,9 @@ namespace GamesDatabase.Domain.Commands
             string name,
             string genre,
             string description,
-            double initialPrice,
-            double discount_Percentage,
-            double finalPrice,
+            decimal initialPrice,
+            decimal discount_Percentage,
+            decimal finalPrice,
             string screenshotPath)
         {
             Type = type;
@@ -35,9 +35,9 @@ namespace GamesDatabase.Domain.Commands
         public string Name { get; set; }
         public string Genre { get; set; }
         public string Description { get; set; }
-        public double InitialPrice { get; set; }
-        public double Discount_Percentage { get; set; }
-        public double FinalPrice { get; set; }
+        public decimal InitialPrice { get; set; }
+        public decimal Discount_Percentage { get; set; }
+        public decimal FinalPrice { get; set; }
         public string ScreenshotPath { get; set; }
         public Dictionary<string, string> Notification { get; set; } = new Dictionary<string, string>();
 

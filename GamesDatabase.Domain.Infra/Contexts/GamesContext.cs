@@ -15,7 +15,7 @@ namespace GamesDatabase.Domain.Infra.Contexts
         public DbSet<Game> Games { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-           => options.UseSqlServer("Server=localhost,1433;Database=GamesDb;User ID=sa; Encrypt=False; Password=1q2w3e4r@#$");
+           => options.UseSqlServer("Server=localhost,1433\\SQLEXPRESS;Database=GamesDb;User ID=sa;Encrypt=False;Password=1q2w3e4r@#$");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,10 +24,12 @@ namespace GamesDatabase.Domain.Infra.Contexts
             modelBuilder.Entity<Game>().Property(x => x.Name).HasMaxLength(60).HasColumnType("NVARCHAR");
             modelBuilder.Entity<Game>().Property(x => x.Type).HasMaxLength(60).HasColumnType("NVARCHAR");
             modelBuilder.Entity<Game>().Property(x => x.Genre).HasMaxLength(30).HasColumnType("NVARCHAR");
-            modelBuilder.Entity<Game>().Property(x => x.InitialPrice).HasColumnType("DOUBLE");
-            modelBuilder.Entity<Game>().Property(x => x.Discount_Percentage).HasColumnType("DOUBLE");
-            modelBuilder.Entity<Game>().Property(x => x.FinalPrice).HasColumnType("DOUBLE");
+            modelBuilder.Entity<Game>().Property(x => x.InitialPrice).HasColumnType("DECIMAL");
+            modelBuilder.Entity<Game>().Property(x => x.Discount_Percentage).HasColumnType("DECIMAL");
+            modelBuilder.Entity<Game>().Property(x => x.FinalPrice).HasColumnType("DECIMAL");
             modelBuilder.Entity<Game>().Property(x => x.ScreenshotPath).HasMaxLength(300).HasColumnType("NVARCHAR");
         }
     }
 }
+
+//Server=localhost;1433;Database=GamesDb;User ID=sa; Encrypt=False; Password=1q2w3e4r@#$
