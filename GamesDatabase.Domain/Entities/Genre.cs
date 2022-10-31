@@ -13,5 +13,11 @@ namespace GamesDatabase.Domain.Entities
             Description = description;
         }
         public string Description { get; private set; }
+
+        public string DescriptionString
+        {
+            get { return Description; }
+            set { }
+        }
     }
 }

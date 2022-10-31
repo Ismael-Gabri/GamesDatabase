@@ -16,10 +16,10 @@ namespace GamesDatabase.Domain.Commands
             string name,
             string genre,
             string description,
-            decimal initialPrice,
+            double initialPrice,
             double discount_Percentage,
-            decimal finalPrice,
-            List<string> screenshotPath)
+            double finalPrice,
+            string screenshotPath)
         {
             Type = type;
             Name = name;
@@ -35,10 +35,10 @@ namespace GamesDatabase.Domain.Commands
         public string Name { get; set; }
         public string Genre { get; set; }
         public string Description { get; set; }
-        public decimal InitialPrice { get; set; }
+        public double InitialPrice { get; set; }
         public double Discount_Percentage { get; set; }
-        public decimal FinalPrice { get; set; }
-        public List<string> ScreenshotPath { get; set; } = new List<string>();
+        public double FinalPrice { get; set; }
+        public string ScreenshotPath { get; set; }
         public Dictionary<string, string> Notification { get; set; } = new Dictionary<string, string>();
 
         public bool Validate()
@@ -61,8 +61,8 @@ namespace GamesDatabase.Domain.Commands
             if (FinalPrice == null)
                 Notification.Add("FinalPrice", "Preço final igual a nulo");
 
-            if (ScreenshotPath.Count < 1)
-                Notification.Add("ScreenshotPath", "É preciso de pelo menos 1 screenshoot");
+            if (ScreenshotPath == null || ScreenshotPath == "")
+                Notification.Add("ScreenshotPath", "É preciso de uma screenshoot");
 
             if (Notification.Count > 0)
                 return false;

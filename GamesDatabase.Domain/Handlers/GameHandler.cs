@@ -24,12 +24,9 @@ namespace GamesDatabase.Domain.Handlers
         {
             if (!command.Validate())
                 return new GenericCommandResult(false, "Ops, algo deu errado", command.Notification);
-
-            Genre genre = new Genre(command.Genre);
-            PriceOverview priceOverview = new PriceOverview(command.InitialPrice, command.Discount_Percentage, command.FinalPrice);
             
             //Criar jogo
-            var game = new Game(command.Type, command.Name, genre, priceOverview, command.ScreenshotPath);
+            var game = new Game(command.Type, command.Name, command.Genre, command.InitialPrice, command.Discount_Percentage, command.FinalPrice, command.ScreenshotPath);
 
             //Salvar no banco
             _repository.Create(game);
