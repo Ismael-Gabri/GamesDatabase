@@ -1,21 +1,21 @@
 ﻿using GamesDatabase.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace GamesDatabase.Domain.Infra.Contexts
 {
     public class GamesContext : DbContext
     {
+        public GamesContext() { }
         public GamesContext(DbContextOptions <GamesContext> options) : base(options)
         {
 
         }
 
         public DbSet<Game> Games { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+           => options.UseSqlServer("Server=localhost,1433;Database=GamesDb;User ID=sa; Encrypt=False; Password=1q2w3e4r@#$");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
