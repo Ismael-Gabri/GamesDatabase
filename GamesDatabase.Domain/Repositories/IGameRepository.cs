@@ -10,5 +10,6 @@ namespace GamesDatabase.Domain.Repositories
     public interface IGameRepository
     {
         void Create(Game game);
+        IEnumerable<Game> GetAll(string type);
     }
 }

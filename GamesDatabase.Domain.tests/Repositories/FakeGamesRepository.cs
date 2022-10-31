@@ -8,11 +8,16 @@ using System.Threading.Tasks;
 
 namespace GamesDatabase.Domain.tests.Repositories
 {
-    internal class FakeGamesRepository : IGameRepository
+    public class FakeGamesRepository : IGameRepository
     {
         public void Create(Game game)
         {
             
+        }
+
+        public IEnumerable<Game> GetAll(string type)
+        {
+            throw new NotImplementedException();
         }
     }
 }
