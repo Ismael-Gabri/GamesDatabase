@@ -33,5 +33,12 @@ namespace GamesDatabase.Domain.Handlers
 
             return new GenericCommandResult(true, "Jogo Salvo", game);
         }
+
+        public ICommandResult HandleDelete(Guid id)
+        {
+            _repository.Delete(id);
+
+            return new GenericCommandResult(true, "Jogo Deletado", id);
+        }
     }
 }

@@ -26,6 +26,13 @@ namespace GamesDatabase.Domain.Infra.Repositories
             _context.SaveChanges();
         }
 
+        public void Delete(Guid id)
+        {
+            var game = _context.Games.FirstOrDefault(x => x.Id == id);
+            _context.Games.Remove(game);
+            _context.SaveChanges();
+        }
+
         public IEnumerable<Game> GetAll(string type)
         {
             return _context.Games.AsNoTracking().Where(GameQueries.GetAll("Jogo"));
