@@ -15,6 +15,11 @@ namespace GamesDatabase.Domain.tests.Repositories
             
         }
 
+        public void Delete(Game game)
+        {
+            
+        }
+
         public IEnumerable<Game> GetAll(string type)
         {
             throw new NotImplementedException();

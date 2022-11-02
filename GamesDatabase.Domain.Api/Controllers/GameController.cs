@@ -21,5 +21,11 @@ namespace GamesDatabase.Domain.Api.Controllers
         {
             return (GenericCommandResult)handler.Handle(command);
         }
+
+        [HttpDelete("/delete/{id:Guid}")]
+        public GenericCommandResult Delete([FromServices] GameHandler handler, [FromRoute] Guid id)
+        {
+            return (GenericCommandResult)handler.HandleDelete(id);
+        }
     }
 }

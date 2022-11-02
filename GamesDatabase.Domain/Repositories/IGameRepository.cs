@@ -10,6 +10,7 @@ namespace GamesDatabase.Domain.Repositories
     public interface IGameRepository
     {
         void Create(Game game);
+        void Delete(Guid id);
         IEnumerable<Game> GetAll(string type);
     }
 }
